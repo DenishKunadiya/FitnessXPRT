@@ -1,0 +1,11 @@
+.header {
+    background-color: rgb(219, 159, 159);
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+}
+
+.hello {
+    font-size: 25px;
+    margin: auto 0px;
+}
