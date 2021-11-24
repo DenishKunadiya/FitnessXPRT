@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import CustomButton from "../custom-button.component.jsx/custom-button.component";
 import "./sign-in.styles.css";
-
 class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -12,67 +11,58 @@ class SignIn extends Component {
     };
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-
-    this.setState({ email: "", password: "" });
-  };
-
-  handleChange = (event) => {
-    const { value, name } = event.target;
-
-    this.setState({ [name]: value });
-  };
   render() {
     return (
-      // <div classNameName='sign-in'>
-      //   <h2>I already have an account</h2>
-      //   <span>Sign in with your email and password</span>
-
-      //   <form onSubmit={this.handleSubmit}>
-      //     <label>Email</label>
-      //     <input type="email" name="email" onChange={this.handleChange} value={this.state.email} required />
-      //     <label>Password</label>
-      //     <input type="password" name="password" onChange={this.handleChange} value={this.state.password} required />
-      //     <input type="submit" value="submit" />
-      //   </form>
-      // </div>
-      <div className="sign-in">
-        <form onSubmit={this.handleSubmit}>
-          <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
-              <h5>Enter Your Email</h5>
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              handleChange={this.handleChange}
-              value={this.state.email}
-            />
-            <div id="emailHelp" className="form-text">
-              ** We'll never share your email with anyone else. **
-            </div>
+      <div className="main">
+        <div className="container">
+          <div className="signup-content">
+            <form method="POST" id="signup-form" className="signup-form">
+              <h2>Log in</h2>
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="form-input"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-input"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                />
+                <span
+                  toggle="#password"
+                  className="zmdi zmdi-eye field-icon toggle-password"
+                ></span>
+              </div>
+              <div className="form-group">
+                <input
+                  type="checkbox"
+                  name="agree-term"
+                  id="agree-term"
+                  className="agree-term"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="submit"
+                  name="submit"
+                  id="submit"
+                  className="form-submit submit"
+                  value="Log in"
+                />
+              </div>
+            </form>
           </div>
-          <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
-              <h5>Enter Your Password</h5>
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="exampleInputPassword1"
-              handleChange={this.handleChange}
-              value={this.state.password}
-            />
-          </div>
-          <CustomButton type="submit" className="text-center">
-            Sign In
-          </CustomButton>
-        </form>
+        </div>
       </div>
     );
   }
 }
+
 export default SignIn;
