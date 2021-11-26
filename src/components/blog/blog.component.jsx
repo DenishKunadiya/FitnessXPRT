@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import './blog.styles.css'
- class Blog extends Component {
-    render() {
-        return (
-            <div className='blog-page'>
-                <h1>Blog page</h1>
-            </div>
-        )
-    }
+import React, { Component } from "react";
+
+export default class Blog extends Component {
+  render() {
+    return (
+      <div>
+        <h1>This is Blog page</h1>
+        <h3>this is redirected whenever you click the blog button in navbar</h3>
+      </div>
+    );
+  }
 }
-export default Blog;

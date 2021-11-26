@@ -1,0 +1,8 @@
+.nav {
+    justify-content: space-around !important;
+    font-size: 25px !important;
+}
+
+.nav-link {
+    color: #000;
+}

@@ -1,6 +1,6 @@
 import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
-import "firebase/compat/auth";
+// import "firebase/compat/firestore";
+// import "firebase/compat/auth";
 
 const config = {
     apiKey: "AIzaSyBxiSCGVRQ7AUPpN68NJSHEh06QjQICzzQ",
@@ -18,13 +18,14 @@ const config = {
     measurementId: "G-DNVJMY9MBP",
 };
 
-firebase.initializeApp(config);
+const fire = firebase.initializeApp(config);
+export default fire;
 
-export const auth = firebase.auth();
-// export const firestore = firebase.firestore();
+// export const auth = firebase.auth();
+// // export const firestore = firebase.firestore();
 
-// const provider = new firebase.auth.GoogleAuthProvider();
-// provider.setCustomParameters({ prompt: "select_account" });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+// // const provider = new firebase.auth.GoogleAuthProvider();
+// // provider.setCustomParameters({ prompt: "select_account" });
+// export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
-export default firebase;
+// export default firebase;

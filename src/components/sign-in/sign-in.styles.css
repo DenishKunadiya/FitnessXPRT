@@ -88,19 +88,19 @@ h2 {
     clear: both;
 }
 
-body {
+
+/* body {
     font-size: 14px;
     line-height: 1.8;
     color: #fff;
     font-weight: 600;
     margin: 0px;
-    background-image: url("../../assets/body-bg.jpg");
+} */
+
+.img {
+    background-image: url("../../assets/dumbbell-ga14fdc027_1920.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
     background-position: center center;
 }
 
@@ -109,12 +109,12 @@ body {
 }
 
 .container {
-    margin-top: 120px;
-    margin-bottom: 70px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
     width: 1123px;
     padding-top: 135px;
     padding-bottom: 115px;
-    background-image: url("../../assets/container-bg.png");
+    background-image: url("../../assets/peter-gargiulo-cGNCepznaV8-unsplash.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     -moz-background-size: cover;
@@ -286,6 +286,17 @@ input[type=checkbox]:not(old):checked+label>span:before {
 .submit-link:hover {
     background: #fff;
     color: #b18757;
+}
+
+.signin-redirect {
+    color: rgb(45, 72, 223);
+    font-size: 1.2rem;
+}
+
+.signin-redirect:hover {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 992px) {

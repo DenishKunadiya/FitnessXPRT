@@ -1,23 +1,24 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Blog from "./components/blog/blog.component";
-import Navigation from "./components/navigation/navigation.component";
-import Nutrition from "./components/nutrition/Nutrition.component";
-import Excercise from "./components/excercise/excercise.component";
-import SignInandSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import SignUp from "./components/sign-up/sign-up.component";
+import SignIn from "./components/sign-in/sign-in.component";
+import Nutrition from "./components/Nutrition/nutrition.component";
+import Navbar from "./components/header/Navbar.component";
+import Blog from "./components/blog/blog.component";
+import Profile from "./components/profile/Profile";
+
 function App() {
   return (
     <BrowserRouter>
-      <Navigation />
-
-      {/* <Profile /> */}
+      <Navbar />
       <Routes>
+        <Route exact path="/" element={<SignUp />} />
+        <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/nutrition" element={<Nutrition />} />
         <Route exact path="/blog" element={<Blog />} />
-        <Route exact path="/excercise" element={<Excercise />} />
-        <Route exact path="/signin" element={<SignInandSignUp />} />
-        <Route exact path="/signup" element={<SignUp />} />
+        <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/blog" element={<Blog />} />
       </Routes>
     </BrowserRouter>
   );

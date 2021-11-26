@@ -88,13 +88,18 @@ h2 {
     clear: both;
 }
 
+
+/* 
 body {
     font-size: 14px;
     line-height: 1.8;
     color: #fff;
     font-weight: 600;
     margin: 0px;
-    background-image: url("../../assets/body-bg.jpg");
+} */
+
+.img {
+    background-image: url("../../assets/dumbbell-ga14fdc027_1920.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     -moz-background-size: cover;
@@ -109,12 +114,13 @@ body {
 }
 
 .container {
-    margin-top: 120px;
-    margin-bottom: 70px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
     width: 1123px;
     padding-top: 135px;
     padding-bottom: 115px;
-    background-image: url("../../assets/container-bg.png");
+    background-image: url("../../assets/peter-gargiulo-cGNCepznaV8-unsplash.jpg");
+    opacity: 0.7;
     background-repeat: no-repeat;
     background-size: cover;
     -moz-background-size: cover;
@@ -128,7 +134,7 @@ body {
 .signup-content {
     width: 562px;
     margin-right: 0px;
-    background: rgba(177, 135, 77, 0.75);
+    background: rgba(104, 54, 85, 0.75) !important;
     float: right;
 }
 
@@ -286,6 +292,17 @@ input[type=checkbox]:not(old):checked+label>span:before {
 .submit-link:hover {
     background: #fff;
     color: #b18757;
+}
+
+.login-redirect {
+    color: rgb(45, 72, 223);
+    font-size: 1.2rem;
+}
+
+.login-redirect:hover {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 992px) {
