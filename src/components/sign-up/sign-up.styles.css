@@ -113,7 +113,7 @@ body {
     position: relative;
 }
 
-.container {
+.container11 {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
     width: 1123px;
@@ -306,7 +306,7 @@ input[type=checkbox]:not(old):checked+label>span:before {
 }
 
 @media screen and (max-width: 992px) {
-    .container {
+    .container11 {
         width: calc( 100% - 30px);
         max-width: 100%;
         margin: 0 auto;

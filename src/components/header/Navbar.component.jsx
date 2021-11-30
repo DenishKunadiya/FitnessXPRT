@@ -5,25 +5,25 @@ export default class Navbar extends Component {
   render() {
     return (
       <div>
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
+        <ul className="nav nav-tabs">
+          <li className="nav-item">
             <Link className="nav-link" to="/nutrition">
-              <i class="fa fa-cutlery"></i>&nbsp; nutrition
+              <i className="fa fa-cutlery"></i>&nbsp; nutrition
             </Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <Link className="nav-link" to="/blog">
-              <i class="bi bi-card-list"></i>&nbsp;blog
+              <i className="bi bi-card-list"></i>&nbsp;blog
             </Link>
           </li>
-          <li class="nav-item">
-            <Link className="nav-link" to="/nutrition">
-              <i class="bi bi-egg"></i>&nbsp;Excercise
+          <li className="nav-item">
+            <Link className="nav-link" to="/Excercise">
+              <i className="bi bi-egg"></i>&nbsp;Excercise
             </Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <Link className="nav-link" to="/profile">
-              <i class="fa fa-user-o"></i>&nbsp;Profile
+              <i className="fa fa-user-o"></i>&nbsp;Profile
             </Link>
           </li>
         </ul>

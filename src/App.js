@@ -7,6 +7,7 @@ import Nutrition from "./components/Nutrition/nutrition.component";
 import Navbar from "./components/header/Navbar.component";
 import Blog from "./components/blog/blog.component";
 import Profile from "./components/profile/Profile";
+import Excercise from "./components/Excercise/Excercise.component";
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
         <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/nutrition" element={<Nutrition />} />
         <Route exact path="/blog" element={<Blog />} />
+        <Route exact path="/Excercise" element={<Excercise />} />
         <Route exact path="/profile" element={<Profile />} />
-        <Route exact path="/blog" element={<Blog />} />
       </Routes>
     </BrowserRouter>
   );
