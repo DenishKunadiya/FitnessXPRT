@@ -1,3 +1,69 @@
-.blog-post-footer {
-    font-size: 2.5rem;
+.card {
+    width: 60rem !important;
+    display: flex;
+    justify-content: center;
+}
+
+.post-container {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.card-link {
+    font-size: 2rem;
+}
+
+.card-body {
+    display: flex;
+    /* justify-content: safe; */
+    align-items: center;
+}
+
+.bi-save {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.like {
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    cursor: pointer;
+    border-radius: 999px;
+    overflow: visible;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hearth {
+    background-image: url('https://assets.codepen.io/23500/Hashflag-AppleEvent.svg');
+    background-size: calc(var(--size) * var(--frames)) var(--size);
+    background-repeat: no-repeat;
+    background-position-x: calc(var(--size) * (var(--frames) * -1 + 2));
+    background-position-y: calc(var(--size) * 0.02);
+    width: var(--size);
+    height: var(--size);
+}
+
+input:checked+.hearth {
+    animation: like 1s steps(calc(var(--frames) - 3));
+    animation-fill-mode: forwards;
+}
+
+@keyframes like {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: calc(var(--size) * (var(--frames) * -1 + 3));
+    }
+}
+
+@media (hover: hover) {
+    .like:hover {
+        background-color: #E1255E15;
+    }
+    .like .hearth:hover {
+        background-position-x: calc(var(--size) * (var(--frames) * -1 + 1));
+    }
 }
