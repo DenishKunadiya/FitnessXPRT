@@ -11,6 +11,7 @@
 
 .card-link {
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .card-body {

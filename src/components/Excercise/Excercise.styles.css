@@ -1,0 +1,62 @@
+.exercise-wrapper {
+    font-size: 1.5rem;
+    margin-top: 25px;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.exercise-input::placeholder {
+    color: red !important;
+}
+
+.btn-group {
+    /* background-color: violet;
+    width: 14rem;
+    height: 5rem;
+    border-radius: 50%; */
+    background-color: #04AA6D;
+    /* Green */
+    /* width: 50%; */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+
+/* .add-exercise {
+    width: 12rem;
+    height: 3rem;
+    font-size: large;
+    color: blue;
+} */
+
+.add-exercise {
+    background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%)
+}
+
+.add-exercise {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.add-exercise:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}

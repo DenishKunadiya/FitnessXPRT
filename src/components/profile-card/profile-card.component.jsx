@@ -17,22 +17,19 @@ export default class ProfileCard extends Component {
 
                 <button className="btn profile-edit-btn">Edit Profile</button>
 
-                <label className="like">
+                {/* <label className="like">
                   <input type="checkbox" />
                   <div className="hearth" />
-                </label>
+                </label> */}
               </div>
 
               <div className="profile-stats">
                 <ul>
                   <li>
-                    <span className="profile-stat-count">164</span> posts
+                    <span className="profile-stat-count">0</span> followers
                   </li>
                   <li>
-                    <span className="profile-stat-count">188</span> followers
-                  </li>
-                  <li>
-                    <span className="profile-stat-count">206</span> following
+                    <span className="profile-stat-count">0</span> following
                   </li>
                 </ul>
               </div>

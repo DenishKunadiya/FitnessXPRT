@@ -21,7 +21,7 @@ a:active {
     transition: all 300ms ease 0s;
 }
 
-input,
+.signin-input,
 select,
 textarea {
     outline: none;
@@ -140,7 +140,7 @@ h2 {
     margin-bottom: 23px;
 }
 
-input {
+.signin-input {
     border: none;
     box-sizing: border-box;
     border-bottom: 1px solid #ebebeb;
@@ -152,26 +152,6 @@ input {
     font-family: 'Poppins';
     font-size: 14px;
     padding: 3px 0;
-}
-
-input::-webkit-input-placeholder {
-    font-weight: 400;
-    color: #fff;
-}
-
-input::-moz-placeholder {
-    font-weight: 400;
-    color: #fff;
-}
-
-input:-ms-input-placeholder {
-    font-weight: 400;
-    color: #fff;
-}
-
-input:-moz-placeholder {
-    font-weight: 400;
-    color: #fff;
 }
 
 input:focus {

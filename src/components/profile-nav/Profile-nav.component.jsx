@@ -6,17 +6,17 @@ export default class ProfileNav extends Component {
       <div>
         <div className="container profile-nav">
           <div className="row">
-            <div className="col-4">
+            <div className="col-4 text-center">
               <button type="button" class="btn btn-primary">
                 Nutrition
               </button>
             </div>
-            <div className="col-4">
+            <div className="col-4 text-center ">
               <button type="button" class="btn btn-primary">
                 Blog
               </button>
             </div>
-            <div className="col-4">
+            <div className="col-4 text-center">
               <button type="button" class="btn btn-primary">
                 Excercise
               </button>
