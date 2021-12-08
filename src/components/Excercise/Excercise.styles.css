@@ -10,13 +10,9 @@
 }
 
 .btn-group {
-    /* background-color: violet;
-    width: 14rem;
-    height: 5rem;
-    border-radius: 50%; */
-    background-color: #04AA6D;
-    /* Green */
-    /* width: 50%; */
+    background: #B993D6;
+    background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);
+    background: linear-gradient(to right, #8CA6DB, #B993D6);
     border: none;
     color: white;
     padding: 10px;
@@ -29,16 +25,8 @@
     border-radius: 50%;
 }
 
-
-/* .add-exercise {
-    width: 12rem;
-    height: 3rem;
-    font-size: large;
-    color: blue;
-} */
-
 .add-exercise {
-    background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%)
+    background-image: linear-gradient(to right, #314755 0%, #11d4e2 51%, #314755 100%)
 }
 
 .add-exercise {

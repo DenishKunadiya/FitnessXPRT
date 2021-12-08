@@ -1,11 +1,11 @@
-body {
+/* body {
     background-color: #5F9EA0;
     background-image: url('../../assets/bg2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
-}
+} */
 
 textarea {
     resize: none !important;

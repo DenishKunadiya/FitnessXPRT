@@ -145,12 +145,12 @@ const SignUp = () => {
                   className="form-submit submit signup-input"
                   value="Register"
                 />
-                <h6>
-                  Already have an account{" "}
+                <h4 className="alrdy-account">
+                  Already have an account &nbsp;
                   <Link className="login-redirect" to="/signin" variant="body2">
                     Login
                   </Link>
-                </h6>
+                </h4>
               </div>
             </form>
           </div>

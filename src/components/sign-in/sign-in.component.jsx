@@ -76,13 +76,13 @@ const SignIn = () => {
                   value="Log in"
                 />
 
-                <h6>
+                <h4 className="dnt-account">
                   <br />
                   Don't have an account &nbsp;
                   <Link to="/" className="signin-redirect">
                     Sign up here
                   </Link>
-                </h6>
+                </h4>
               </div>
             </form>
           </div>

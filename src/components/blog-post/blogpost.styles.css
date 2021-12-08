@@ -2,6 +2,7 @@
     width: 60rem !important;
     display: flex;
     justify-content: center;
+    border-radius: 28px;
 }
 
 .post-container {
@@ -12,12 +13,33 @@
 .card-link {
     font-size: 2rem;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.card-link:hover {
+    color: black;
 }
 
 .card-body {
     display: flex;
-    /* justify-content: safe; */
     align-items: center;
+    justify-content: space-between;
+}
+
+.card,
+a {
+    color: rgb(22, 189, 189);
+}
+
+.card,
+a:hover {
+    color: rgb(252, 90, 15);
+}
+
+.profile-img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
 }
 
 .bi-save {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import blogpost from "../../assets/blogpost.jpg";
-import blogpost2 from "../../assets/blogpost2.jpg";
 import "./blogpost.styles.css";
 export default class BlogPost extends Component {
   state = {
@@ -12,16 +11,34 @@ export default class BlogPost extends Component {
   render() {
     return (
       <>
-        <button className="sticky-top" onClick={() => this.addBlogpost()}>
-          Create Blog Post
-        </button>
+        <div className="container d-flex justify-content-center">
+          <button
+            className="sticky-top add-exercise"
+            onClick={() => this.addBlogpost()}
+          >
+            Create Blog Post
+          </button>
+        </div>
         {this.state.addBlog.map((addBlog, index) => {
           return (
             <div key={index}>
               <div className="post-container ">
                 <div class="card mt-5">
-                  <a class="card-link ms-5">Username</a>
-                  <img src={blogpost} class="card-img-top" alt="..." />
+                  <div className="container d-flex mt-4">
+                    <img src={blogpost} alt="" className="profile-img" />
+                    <a class="card-link ms-2">Username</a>
+                  </div>
+                  <img
+                    src={blogpost}
+                    class="card-img-top mt-3 border"
+                    alt="..."
+                  />
+
+                  <h3 className="ms-5 mt-4">
+                    <a class="card-link ms-2">Username &nbsp;</a>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quidem, atque quasi quas voluptate iure reprehenderit!
+                  </h3>
                   <div class="card-body">
                     <label className="like">
                       <input type="checkbox" />

@@ -102,6 +102,7 @@ h2 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    height: 100vh;
 }
 
 .main {
@@ -221,6 +222,10 @@ input[type=checkbox]:not(old):checked+label>span:before {
     color: #fff;
 }
 
+.dnt-account {
+    color: white;
+}
+
 .form-submit {
     width: auto;
     display: inline-block;
@@ -269,14 +274,16 @@ input[type=checkbox]:not(old):checked+label>span:before {
 }
 
 .signin-redirect {
-    color: rgb(45, 72, 223);
-    font-size: 1.2rem;
+    color: rgb(219, 184, 29);
+    font-size: 1.5rem;
 }
 
 .signin-redirect:hover {
-    background-color: #fff;
+    /* background-color: #fff; */
     border: 1px solid black;
-    border-radius: 5px;
+    font-size: 1.6rem;
+    color: rgb(150, 201, 33);
+    /* border-radius: 5px; */
 }
 
 @media screen and (max-width: 992px) {

@@ -56,7 +56,7 @@ input:-webkit-autofill {
 
 img {
     max-width: 100%;
-    height: auto;
+    height: 100vh;
 }
 
 figure {
@@ -107,6 +107,7 @@ body {
     -o-background-size: cover;
     -ms-background-size: cover;
     background-position: center center;
+    height: 100vh;
     /* opacity: 0.9; */
 }
 
@@ -296,15 +297,19 @@ input[type=checkbox]:not(old):checked+label>span:before {
     color: #b18757;
 }
 
+.alrdy-account {
+    color: white;
+}
+
 .login-redirect {
-    color: rgb(45, 72, 223);
-    font-size: 1.2rem;
+    color: rgb(219, 184, 29);
+    font-size: 1.5rem;
 }
 
 .login-redirect:hover {
-    background-color: #fff;
     border: 1px solid black;
-    border-radius: 5px;
+    font-size: 1.6rem;
+    color: rgb(150, 201, 33);
 }
 
 @media screen and (max-width: 992px) {
