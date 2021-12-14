@@ -1,48 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./sign-up.styles.css";
-import userEvent from "@testing-library/user-event";
+
 const SignUp = () => {
-  // const [registerUser, setRegisterUser] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  //   confirmPassword: "",
-  // });
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-  //   setRegisterUser({
-  //     ...registerUser,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  // const requestOptions = {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify(registerUser),
-  // };
-  // console.log("reguser", registerUser);
-  // const sendRegister = () =>
-  //   fetch("http://192.168.1.103:3000/api/user/register", requestOptions)
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // const sendRegister = async () => {
-  //   axios
-  //     .post("http://192.168.1.103:3000/api/user/register", registerUser)
-  //     .then(function (response) {
-  //       console.log("response", response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log("err", error);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   sendRegister();
-  // }, [sendRegister]);
-
   const [data, setdata] = useState({
     name: "",
     email: "",

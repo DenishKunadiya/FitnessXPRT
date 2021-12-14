@@ -5,7 +5,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <div>
-        <ul className="nav nav-tabs">
+        <ul className="nav nav-bg nav-tabs">
           <li className="nav-item">
             <Link className="nav-link" to="/nutrition">
               <i className="fa fa-cutlery"></i>&nbsp; nutrition

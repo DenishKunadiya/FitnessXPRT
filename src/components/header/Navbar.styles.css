@@ -3,6 +3,10 @@
     font-size: 25px !important;
 }
 
+.nav-bg {
+    background: linear-gradient(to top left, #ffc 0%, #cff 82%);
+}
+
 .nav-link {
     color: #000;
 }

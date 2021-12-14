@@ -3,7 +3,7 @@ import "./sign-in.styles.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const SignIn = () => {
+const SignIn = (history) => {
   const [data, setdata] = useState({
     email: "",
     password: "",
@@ -17,6 +17,7 @@ const SignIn = () => {
         password: data.password,
       })
       .then((resp) => {
+        history.push("/nutrition");
         console.log("resp.data", resp.data);
       });
   }

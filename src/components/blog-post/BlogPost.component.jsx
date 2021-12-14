@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import blogpost from "../../assets/blogpost.jpg";
 import "./blogpost.styles.css";
+import Blogpop from "../blogcreate/BlogCreate.component";
 export default class BlogPost extends Component {
   state = {
     addBlog: [],
@@ -11,6 +12,7 @@ export default class BlogPost extends Component {
   render() {
     return (
       <>
+        <Blogpop />
         <div className="container d-flex justify-content-center">
           <button
             className="sticky-top add-exercise"
@@ -24,9 +26,10 @@ export default class BlogPost extends Component {
             <div key={index}>
               <div className="post-container ">
                 <div class="card mt-5">
-                  <div className="container d-flex mt-4">
+                  <div className="container d-flex mt-4 position-relative">
                     <img src={blogpost} alt="" className="profile-img" />
                     <a class="card-link ms-2">Username</a>
+                    <i class="fa fa-credit-card"></i>
                   </div>
                   <img
                     src={blogpost}
@@ -44,7 +47,7 @@ export default class BlogPost extends Component {
                       <input type="checkbox" />
                       <div className="hearth" />
                     </label>
-                    <i class="bi bi-save"></i>
+                    <i class="fa fa-bookmark-o"></i>
                   </div>
                 </div>
               </div>
