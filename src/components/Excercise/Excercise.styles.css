@@ -31,7 +31,7 @@
 
 .add-exercise {
     margin: 10px;
-    padding: 15px 45px;
+    /* padding: 15px 45px; */
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
@@ -47,4 +47,47 @@
     /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
+}
+
+.c-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.c-dropdown:after {
+    content: "\f078";
+    font-weight: 900;
+    font-size: 1.6rem;
+    line-height: 1;
+    right: 13px;
+    top: 50%;
+    margin-top: -5px;
+    color: #767676;
+}
+
+.c-dropdown:before,
+.c-dropdown:after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.c-dropdown__select {
+    appearance: none;
+    border: 1px solid #C7C7C7;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    color: #393939;
+    padding: 12px 10px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.c-dropdown__select:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
 }

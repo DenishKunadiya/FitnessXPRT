@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./sign-in.styles.css";
-import axios from "axios";
-import { Link } from "react-router-dom";
 
-const SignIn = (history) => {
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { userLoginRequest } from "../../services/actions/loginAction";
+const SignIn = ({ login }) => {
+  console.log("login token", login);
   const [data, setdata] = useState({
     email: "",
     password: "",
@@ -11,15 +13,17 @@ const SignIn = (history) => {
 
   function submit(e) {
     e.preventDefault();
-    axios
-      .post("http://192.168.1.103:3000/api/user/login", {
-        email: data.email,
-        password: data.password,
-      })
-      .then((resp) => {
-        history.push("/nutrition");
-        console.log("resp.data", resp.data);
-      });
+    login({ ...data });
+    // axios
+    //   .post("http://192.168.1.110:3000/api/user/login", {
+    //     email: data.email,
+    //     password: data.password,
+    //   })
+    //   .then((resp) => {
+    //     // history.push("/nutrition");
+    //     const token = resp.data.token;
+    //     console.log("resp.data", resp.data);
+    //   });
   }
 
   function handle(e) {
@@ -92,5 +96,7 @@ const SignIn = (history) => {
     </div>
   );
 };
-
-export default SignIn;
+const mapActionToDispatch = (dispatch) => ({
+  login: (submitData) => dispatch(userLoginRequest(submitData)),
+});
+export default connect(null, mapActionToDispatch)(SignIn);

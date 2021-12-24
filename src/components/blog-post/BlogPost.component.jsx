@@ -29,6 +29,7 @@ export default class BlogPost extends Component {
                   <div className="container d-flex mt-4 position-relative">
                     <img src={blogpost} alt="" className="profile-img" />
                     <a class="card-link ms-2">Username</a>
+                    <i class="bi bi-trash"></i>
                     <i class="fa fa-credit-card"></i>
                   </div>
                   <img

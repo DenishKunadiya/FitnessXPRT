@@ -1,37 +1,23 @@
-import React, { Fragment } from "react";
-// import ModalPopup from "./modal_popup";
-import ModalPopup from "../modalpopup/Modalpopup.comopnent";
-class Blogpop extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      showModalPopup: false,
-    };
-  }
-  isShowPopup = (status) => {
-    this.setState({ showModalPopup: status });
-  };
-  render() {
-    return (
-      <Fragment>
-        <h3 align="center">Create a new blog</h3>
-        <header align="center">
-          <Fragment>
-            <div
-              className="container text-center"
-              onClick={() => this.isShowPopup(true)}
-            >
-              <button className="add-exercise">Create Blog</button>
-            </div>
-          </Fragment>
-        </header>
-        <ModalPopup
-          showModalPopup={this.state.showModalPopup}
-          onPopupClose={this.isShowPopup}
-        ></ModalPopup>
-      </Fragment>
-    );
-  }
-}
+import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
+import "./BlogCreate.styles.css";
+
+const Blogpop = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  return (
+    <>
+      <div className="container ">
+        <Link to="/createblog">
+          <button className="btn profile-edit-btn blog-btn">
+            Create new blog
+          </button>
+        </Link>
+      </div>
+    </>
+  );
+};
 
 export default Blogpop;

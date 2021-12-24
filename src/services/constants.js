@@ -1,1 +1,3 @@
-export const ADD_BLOG_FORM = "ADD_BLOG_FORM";
+export const LOGIN = "LOGIN";
+export const SIGN_IN = "SIGN_IN";
+export const CREATE_NUTRITION = "CREATE_NUTRITION";

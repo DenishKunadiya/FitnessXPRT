@@ -1,0 +1,9 @@
+.containerbody {
+    background: url('./assets/gym-bg-3.jpg') no-repeat center center;
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    height: 100vh;
+    overflow-y: scroll;
+    /* box-shadow: 300px 300px 500px 600px rgb(202, 69, 69); */
+}

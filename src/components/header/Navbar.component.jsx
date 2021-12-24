@@ -26,6 +26,9 @@ export default class Navbar extends Component {
               <i className="fa fa-user-o"></i>&nbsp;Profile
             </Link>
           </li>
+          <li className="nav-item">
+            <button className="btn btn-group bg-secondary">Logout</button>
+          </li>
         </ul>
       </div>
     );

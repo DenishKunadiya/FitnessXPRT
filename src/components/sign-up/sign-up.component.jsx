@@ -15,7 +15,7 @@ const SignUp = () => {
     e.preventDefault();
 
     axios
-      .post("http://192.168.1.103:3000/api/user/register", {
+      .post("http://192.168.1.109:3000/api/user/register", {
         name: data.name,
         email: data.email,
         password: data.password,

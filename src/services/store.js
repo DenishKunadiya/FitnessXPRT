@@ -1,15 +1,37 @@
-import { createStore, applyMiddleware } from "redux";
-import logger from "redux-logger";
+import { createStore, compose, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import rootReducer from "../services/reducers/rooReducers";
 
-import roootReducer from "./reducers/root-reducers";
+// const middlewares = [thunk];
 
-const middlewares = [logger];
-const store = createStore(
-    roootReducer,
-    applyMiddleware(...middlewares)
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const composeEnhancers =
+    typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+        // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+    }) :
+    compose;
+
+const persistConfig = {
+    key: "root",
+    storage,
+};
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = createStore(
+    persistedReducer,
+    composeEnhancers(applyMiddleware(thunk))
 );
-console.log(store);
+
+export const persistor = persistStore(store);
+
+// const store = createStore(
+//     roootReducer,
+//     applyMiddleware(...middlewares)
+//     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
+// console.log(store);
 
 export default store;
 

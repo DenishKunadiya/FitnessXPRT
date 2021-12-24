@@ -163,24 +163,9 @@ body {
     padding: 3px 0;
 }
 
-input::-webkit-input-placeholder {
-    font-weight: 400;
-    color: #fff;
-}
-
 input::-moz-placeholder {
     font-weight: 400;
-    color: #fff;
-}
-
-input:-ms-input-placeholder {
-    font-weight: 400;
-    color: #fff;
-}
-
-input:-moz-placeholder {
-    font-weight: 400;
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
 
 input:focus {

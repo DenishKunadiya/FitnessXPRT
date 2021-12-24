@@ -1,0 +1,70 @@
+.main-card {
+    background-color: #0000003b;
+    /* width: 90%; */
+    width: 80vw;
+    max-width: 848px;
+    margin: 0 auto;
+    margin-top: min(80px, 10vw);
+    margin-bottom: 40px;
+    position: relative;
+    height: 50rem;
+}
+
+.containerg {
+    width: fit-content;
+    /* position: relative; */
+    /* top: calc(100px + 5vw); */
+    flex-grow: 100;
+    margin: 8vw;
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    grid-template-rows: 1fr 40px 10vw 15% 1fr 10vw;
+    /* grid-auto-flow: column dense; */
+}
+
+.neo-dark {
+    border-radius: 3%;
+    box-shadow: -2px -2px 3px #555, 2px 2px 3px #222, 1px -1px 3px #555, -1px 1px 3px #555, inset 2px 2px 3px #555, inset -2px -2px 3px #222;
+}
+
+.neo-light {
+    border-radius: 3%;
+    box-shadow: 20px 20px 50px #a04141, -30px -30px 60px #a04175, 10px -10px 30px rgba(96, 75, 189, 0.637), -10px 10px 30px rgba(15, 4, 4, 0.349);
+}
+
+.profile-close-btn {
+    width: 35px;
+    color: rgb(241, 241, 241);
+    text-decoration: none;
+    font-size: 35px;
+    position: absolute;
+    right: 10px;
+}
+
+.profile-close-btn:hover {
+    color: rgb(241, 9, 9);
+    transition: 0.4s ease-in-out;
+}
+
+.containerg,
+.container {
+    font-size: 25px;
+}
+
+.containerg textarea {
+    font-size: 25px;
+}
+
+.containerg input {
+    border: 2px solid rgb(14, 10, 10);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.sbmt-btn-profile {
+    width: 50% !important;
+    position: absolute;
+    bottom: 100px;
+    display: flex;
+    justify-content: center;
+}

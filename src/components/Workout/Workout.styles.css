@@ -1,0 +1,98 @@
+.box {
+    width: auto;
+    margin-top: 25px;
+    padding: 20px;
+    position: relative;
+    /* top: 50%; */
+    /* left: auto; */
+    /* transform: translate(-50%, -50%); */
+    background: #5766573f;
+    text-align: center;
+    border-radius: 20px 20px;
+    opacity: 0.9;
+}
+
+.wrapper-box {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* body {
+    overflow-y: scroll;
+} */
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: linear-gradient( to right, hsl(1 100% 50%), hsl(100 100% 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.box input[type="text"],
+.box input[type="number"],
+textarea {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 5px auto 24px auto;
+    text-align: center;
+    border: 2px solid #D4AC0D;
+    padding: 14px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.5s;
+}
+
+.box input[type="text"]:focus,
+textarea,
+.box input[type="number"]:focus {
+    border-color: #A04000;
+    width: 250px;
+}
+
+.box input[type="text"]:hover,
+.box input[type="number"]:hover,
+textarea {
+    border-color: #A04000;
+}
+
+.box input[type="submit"],
+textarea {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #D4AC0D;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+textarea {
+    margin: 0px auto;
+}
+
+.box input[type="submit"]:focus,
+textarea {
+    border-color: #D4AC0D;
+}
+
+.box input[type="submit"]:hover,
+textarea {
+    /* background: #D4AC0D; */
+    border-radius: 24px;
+}
+
+.box input::placeholder,
+textarea {
+    color: white;
+}

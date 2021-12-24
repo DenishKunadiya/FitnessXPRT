@@ -8,11 +8,11 @@ export default class Profile extends Component {
     return (
       <div classNameName="container">
         <ProfileCard />
-        <div classNameName="container-fluid">
+        <div classNameName="container-fluid ">
           <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
-                className="nav-link active"
+                className="nav-link active text-light"
                 id="pills-home-tab"
                 data-bs-toggle="pill"
                 data-bs-target="#pills-home"
@@ -26,7 +26,7 @@ export default class Profile extends Component {
             </li>
             <li className="nav-item" role="presentation">
               <button
-                className="nav-link"
+                className="nav-link text-light"
                 id="pills-profile-tab"
                 data-bs-toggle="pill"
                 data-bs-target="#pills-profile"

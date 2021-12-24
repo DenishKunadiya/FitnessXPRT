@@ -1,41 +1,19 @@
 import React, { Component } from "react";
+import { useState } from "react";
+import ExerciseContainer from "../exercise-bottom-container/ExerciseContainer";
+import Workout from "../Workout/Workout.component";
 import "./Excercise.styles.css";
-export default class Exercise extends Component {
-  render() {
-    return (
-      <>
-        <div>
-          <hr />
-          <div className="container exercise-wrapper">
-            <input
-              type="email"
-              placeholder="enter your exercise"
-              className="exercise-input"
-            />
-          </div>
-          <div className="container">
-            <div className="row mt-5 border py-5">
-              <div className="col-12 d-flex justify-content-center">
-                <button className="btn-group-exercise">day-1</button>
-                <button className="btn-group-exercise">day-2</button>
-                <button className="btn-group-exercise">day-3</button>
-                <button className="btn-group-exercise">day-4</button>
-                <button className="btn-group-exercise">day-5</button>
-              </div>
-              <div className="col-12 mt-2 d-flex justify-content-center">
-                <button className="btn-group-exercise">day-1</button>
-                <button className="btn-group-exercise">day-2</button>
-                <button className="btn-group-exercise">day-3</button>
-                <button className="btn-group-exercise">day-4</button>
-                <button className="btn-group-exercise">day-5</button>
-              </div>
-            </div>
-          </div>
-          <div className="container d-flex justify-content-center mt-4">
-            <button className="add-exercise">add exercise</button>
-          </div>
-        </div>
-      </>
-    );
-  }
-}
+import PostExercise from "./PostExercise.component";
+
+const Exercise = () => {
+  return (
+    <>
+      <div>
+        <Workout />
+        <ExerciseContainer />
+      </div>
+    </>
+  );
+};
+
+export default Exercise;
