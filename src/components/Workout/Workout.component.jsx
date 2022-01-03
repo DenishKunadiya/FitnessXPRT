@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { store } from "../../services/store";
-import axios from "axios";
 import "./Workout.styles.css";
+import { createExercise } from "../../helper/api/excercise";
 const Workout = () => {
-  // const [exerciseName, setExerciseName] = useState();
-  // const [desceription, setDesceription] = useState();
-  // const [sets, setSets] = useState();
-  // const [reps, setReps] = useState();
   const [exerciseData, setExerciseData] = useState({
     posttitle: "",
     exerciseName: "",
@@ -17,30 +13,12 @@ const Workout = () => {
   });
 
   const token = store.getState().login.login.access_token;
-  console.log("token is here", token);
+  // console.log("token is here", token);
 
   const submit = (e) => {
     e.preventDefault();
     console.log("exerciseData is Here", exerciseData);
-    axios
-      .post(
-        "http://192.168.1.109:3000/api/exercise/create-exercise",
-        exerciseData,
-
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-
-      .then((result) => {
-        console.log("Success:", result);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    createExercise(exerciseData);
   };
   function handle(e) {
     e.preventDefault();
@@ -90,6 +68,7 @@ const Workout = () => {
             name="sets"
             id="sets"
             min={1}
+            max={4}
             placeholder="Enter sets here"
             value={exerciseData.sets}
             onChange={(e) => handle(e)}
@@ -99,7 +78,8 @@ const Workout = () => {
             type="number"
             name="reps"
             id="reps"
-            min={1}
+            min={10}
+            max={10}
             placeholder="Enter reps here"
             value={exerciseData.reps}
             onChange={(e) => handle(e)}
@@ -111,7 +91,7 @@ const Workout = () => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log("state", state);
+  console.log("state in workout", state);
   return {
     userData: state.login.login.access_token,
   };

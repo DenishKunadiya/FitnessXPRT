@@ -73,19 +73,12 @@ img {
     margin-right: 3rem;
 }
 
+.user-profile-img {
+    height: auto;
+}
+
 .profile-image img {
     border-radius: 50%;
-}
-
-.profile-user-settings,
-.profile-stats,
-.profile-bio {
-    float: left;
-    width: calc(66.666% - 2rem);
-}
-
-.profile-user-settings {
-    margin-top: 1.1rem;
 }
 
 .profile-user-name {
@@ -97,10 +90,16 @@ img {
 .profile-edit-btn {
     font-size: 1.4rem;
     line-height: 1.8;
-    border: 0.1rem solid #dbdbdb;
+    border: 3px solid #8b1212;
     border-radius: 0.3rem;
     padding: 0 2.4rem;
     margin-left: 2rem;
+    margin-bottom: 15px;
+}
+
+.profile-edit-btn:hover {
+    background-color: aquamarine;
+    transition: 1s;
 }
 
 .profile-settings-btn {

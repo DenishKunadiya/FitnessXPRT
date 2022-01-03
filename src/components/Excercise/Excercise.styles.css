@@ -25,6 +25,12 @@
     border-radius: 50%;
 }
 
+.btn-group-exercise:hover {
+    background: #b8ad1e;
+    border: 2px solid black;
+    transition: all 1.5s;
+}
+
 .add-exercise {
     background-image: linear-gradient(to right, #314755 0%, #11d4e2 51%, #314755 100%)
 }

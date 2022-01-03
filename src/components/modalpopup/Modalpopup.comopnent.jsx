@@ -33,7 +33,7 @@ const ModalPopup = (props, { userData }) => {
     // console.log("Form data is here", formData);
     console.log("selected file in function", formData);
     let result = fetch(
-      "http://192.168.1.109:3000/api/blog/create-blog",
+      "http://192.168.0.115:5000/api/blog/create-blog",
 
       {
         method: "POST",
@@ -69,13 +69,13 @@ const ModalPopup = (props, { userData }) => {
         centered
       >
         <div className="container modal-bg">
-          <i class="fa fa-close profile-close-btn"></i>
+          <i className="fa fa-close profile-close-btn"></i>
 
           <form>
             <h3 className="text-dark">Upload Require Details</h3>
             <hr />
             <div className="container ">
-              <div class="parent-div">
+              <div className="parent-div">
                 <h4 className="text-dark">Choose your title</h4>
                 <br />
                 <input
@@ -85,12 +85,12 @@ const ModalPopup = (props, { userData }) => {
                 />
               </div>
               <br />
-              <div class="parent-div">
+              <div className="parent-div">
                 <h4 className="text-dark">Choose your image</h4>
                 <br />
-                <button class="btn-upload">
+                <button className="btn-upload">
                   Choose Image From Gallery &nbsp;
-                  <i class="fa fa-file-photo-o"></i>
+                  <i className="fa fa-file-photo-o"></i>
                 </button>
 
                 <input
@@ -99,12 +99,12 @@ const ModalPopup = (props, { userData }) => {
                   onChange={(e) => setSelectFile(e.target.files[0])}
                 />
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <h5 className="text-dark font-weight-bold">
                   Enter Description Here
                 </h5>
                 <textarea
-                  class="form-control blog-desc"
+                  className="form-control blog-desc"
                   id="exampleFormControlTextarea1"
                   rows="3"
                   name="description"
@@ -124,7 +124,7 @@ const ModalPopup = (props, { userData }) => {
               >
                 Close
               </button> */}
-              <button class="name noselect mt-1 mb-5" onClick={submitForm}>
+              <button className="name noselect mt-1 mb-5" onClick={submitForm}>
                 Submit
               </button>
             </div>

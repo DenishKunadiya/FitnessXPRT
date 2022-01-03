@@ -1,49 +1,74 @@
-import React, { Component, useState, useEffect } from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { AuthApiCall } from "../../helper/api";
+import { updateUserProfile } from "../../helper/api/user";
+import { store } from "../../services/store";
 
 import "./editprofile.styles.css";
-const EditProfile = ({ userData }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const EditProfile = ({ history }) => {
+  const [updateDetail, setupdateDetail] = useState({
+    name: "",
+    email: "",
+    password: null,
+  });
 
-  const editProfile = (id) => {
-    alert(id);
+  const submitUpdateUser = (e) => {
+    e.preventDefault();
+
+    updateUserProfile(updateDetail).then(() => {
+      history.push("/profile");
+    });
   };
+  function handle(e) {
+    e.preventDefault();
+    const newdata = { ...updateDetail };
+    newdata[e.target.id] = e.target.value;
+    setupdateDetail(newdata);
+    console.log("update user data", newdata);
+  }
   return (
     <div>
-      <div class="main-card neo-light">
-        <form method="POST">
-          <div class="containerg">
+      <div className="main-card neo-light">
+        <form method="POST" onSubmit={submitUpdateUser}>
+          <div className="containerg">
             <div className="container mt-5">
               <label className="mt-5">Username :</label> &nbsp;
               <input
                 type="name"
                 className=""
                 placeholder="Set New Username"
-                name=""
-                id=""
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                name="name"
+                id="name"
+                value={updateDetail.name}
+                onChange={(e) => {
+                  handle(e);
+                }}
               />
               <label className="">Email :</label> &nbsp;
               <input
                 type="email"
                 className=""
                 placeholder="Set New email"
-                name=""
-                id=""
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                id="email"
+                value={updateDetail.email}
+                onChange={(e) => {
+                  handle(e);
+                }}
               />
               <label className="">password :</label> &nbsp;
               <input
                 type="password"
                 className=""
                 placeholder="Set New password"
-                name=""
-                id=""
+                name="password"
+                id="password"
+                value={updateDetail.password}
+                onChange={(e) => {
+                  handle(e);
+                }}
               />
             </div>
 
@@ -52,11 +77,10 @@ const EditProfile = ({ userData }) => {
                 type="submit"
                 value="submit"
                 className="sbmt-btn-profile"
-                onClick={() => editProfile(userData._id)}
               />
             </div>
             <Link to="/profile" className="profile-close-btn">
-              <i class="fa fa-close"></i>
+              <i className="fa fa-close"></i>
             </Link>
           </div>
         </form>

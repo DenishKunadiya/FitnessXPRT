@@ -1,7 +1,7 @@
 // import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 // import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 // import "./sign-up.styles.css";
 
 // const SignUp = ({ setLogoutUser }) => {
@@ -10,7 +10,7 @@
 //   const [password, setPassword] = useState("");
 //   const [confirmPassword, setConfirmPassword] = useState("");
 //   const [error, setError] = useState("");
-//   let history = useNavigate();
+//   let history = useHistory();
 
 //   const register = (e) => {
 //     console.log("name ", name);

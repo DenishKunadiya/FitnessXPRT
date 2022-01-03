@@ -1,53 +1,75 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import {
+  fetchNutrition,
+  fetchNutritionss,
+} from "../../services/actions/getAllNutritionAction";
 import "./nutritionpage.styles.css";
-export default class NutritionPage extends Component {
-  render() {
-    return (
-      <div>
-        <div className="wrapper" id="app">
-          <div className="card-form">
-            <div className="card-list-nutrition">
-              <div className="card-item -front">
-                <div className="card-item__side">
-                  <div className="card-item__cover">
-                    <img
-                      src="https://images.pexels.com/photos/6529940/pexels-photo-6529940.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                      className="card-item__bg"
-                    />
+const NutritionCard = ({ nutritions = [], fetchnut }) => {
+  console.log("nutrition datacxzczx", nutritions);
+
+  const [nutrition, setNutrition] = useState(nutritions);
+  useEffect(() => {
+    if (!nutritions.length) {
+      fetchnut();
+    }
+    setNutrition(nutritions);
+  }, [nutritions]);
+  return (
+    <div>
+      {nutrition &&
+        nutrition.map((nut, index) => {
+          return (
+            <div className="wrapper" id="app">
+              <div className="card-form ">
+                <div className="card-list-nutrition">
+                  <div className="card-item -front">
+                    <div className="card-item__side">
+                      <div className="card-item__cover">
+                        <img src="" className="card-item__bg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-form__inner">
+                  <i className="bi bi-trash trash-nutrition"></i>
+                  <Link to="/updatenutrition">
+                    <i className="fa fa-credit-card credit-card-nutrition"></i>
+                  </Link>
+                  <i className="fa fa-bookmark-o save-nutrition"></i>
+                  <div className="card-title">{nut.nutritionname}</div>
+                  <div className="card-description">
+                    <p>{nut.procedure}</p>
+                  </div>
+                  <div className="card-description">
+                    <h1>Ingredients</h1>
+                    {nut.ingredient},
+                    <br />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card-form__inner">
-              <div className="card-title">Bread and strawberries</div>
-              <div className="card-description">
-                <p>
-                  step 1: Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit. Distinctio, repellat eligendi, voluptate sequi, ullam ut
-                  nostrum omnis soluta maxime praesentium ipsam suscipit alias
-                  quos. Earum alias sunt dolore! Et quas provident tenetur quia
-                  alias, molestias voluptas odio sequi modi ad totam labore
-                  dolor esse, officia, eveniet fugit dignissimos ipsum minima.
-                </p>
-              </div>
-              <div className="card-description">
-                <h1>Ingredients</h1>
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name, name,name,
-                name,name, name,name, name,name, name,name,
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+          );
+        })}
+    </div>
+  );
+};
+// const mapStateToProps = (state) => {
+//   console.log("state in Nutrition page component", state);
+//   return {
+//     posts: state,
+//   };
+// };
+const mapStateToProps = (state) => {
+  console.log("state in nut component", state);
+  return {
+    nutritions: state.allNutrition.getnutrition?.data?.message,
+  };
+};
+const mapDispatchToProp = (dispatch) => {
+  return {
+    fetchnut: () => dispatch(fetchNutritionss()),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProp)(NutritionCard);

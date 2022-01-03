@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import profile from "../../assets/profile.png";
+import bg2 from "../../assets/bg2.jpg";
 import "./profile-card.styles.css";
 
 const ProfileCard = ({ userData }) => {
   useEffect(() => {
-    console.log("userdata", userData);
+    // console.log("userdata", userData);
   }, [userData]);
   return (
     <div>
@@ -14,11 +15,15 @@ const ProfileCard = ({ userData }) => {
         <div className="container1">
           <div className="profile">
             <div className="profile-image">
-              <img src={profile} alt="Profile" />
+              <img src={bg2} alt="Profile" className="user-profile-img" />
             </div>
 
             <div className="profile-user-settings">
-              <h1 className="profile-user-name">{userData.name} </h1>
+              <h1 className="profile-user-name">
+                <b>
+                  <i> {userData.name}</i>
+                </b>{" "}
+              </h1>
 
               <Link className="btn profile-edit-btn" to="/EditProfile">
                 Edit Profile
@@ -48,9 +53,9 @@ const ProfileCard = ({ userData }) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log("state", state);
+  // console.log("state", state);
   return {
-    userData: state.login.login.user,
+    userData: state.login.login.data,
   };
 };
 export default connect(mapStateToProps)(ProfileCard);

@@ -125,3 +125,24 @@ textarea {
     border-top: 5px solid rgb(168, 46, 46);
     border-bottom: 5px solid rgb(143, 4, 4);
 }
+
+.input-group {
+    height: 35px;
+}
+
+.input-text {
+    font-size: 15px;
+}
+
+.delete-btn {
+    border: 2px solid rgb(255, 38, 0);
+    background-color: #fff;
+    width: 8rem;
+    color: red;
+    border-radius: 10%;
+}
+
+.delete-btn:hover {
+    background-color: rgb(0, 0, 0);
+    transition: 0.5s;
+}

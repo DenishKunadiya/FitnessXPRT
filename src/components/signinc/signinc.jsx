@@ -107,13 +107,13 @@ export default class Nutrition extends Component {
             {this.state.addText.map((addText, index) => {
               return (
                 <div className="container" key={index}>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="exampleFormControlTextarea1">
                       Step : {index + 1}
                     </label>
                     <textarea
                       id="procedureName"
-                      class="form-control"
+                      className="form-control"
                       id="exampleFormControlTextarea1"
                       rows="2"
                       cols="2"

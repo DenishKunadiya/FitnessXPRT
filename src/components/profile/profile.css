@@ -36,8 +36,11 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     padding-bottom: 3rem;
 } */
 
-img {
+img {}
+
+.user-profile-img {
     display: block;
+    max-width: 70%;
 }
 
 .container1 {
@@ -108,17 +111,21 @@ img {
 .profile-user-name {
     display: inline-block;
     font-size: 3.2rem;
+    margin-top: 15px;
     font-weight: 300;
+    color: rgb(255, 255, 255);
 }
 
-.profile-edit-btn {
+
+/* .profile-edit-btn {
     font-size: 1.4rem;
     line-height: 1.8;
-    border: 0.1rem solid #dbdbdb;
+    border: 1px solid #a00606;
     border-radius: 0.3rem;
     padding: 0 2.4rem;
     margin-left: 2rem;
-}
+    margin-bottom: 15px;
+} */
 
 .profile-settings-btn {
     font-size: 2rem;

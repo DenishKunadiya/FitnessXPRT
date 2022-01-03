@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import profile from "../../assets/profile.png";
-import ProfileCard from "../profile-card/profile-card.component";
+// import profile from "../../assets/profile.png";
 import ProfileNav from "../profile-nav/Profile-nav.component";
 import "./profile.css";
 export default class Profile extends Component {
   render() {
     return (
-      <div classNameName="container">
-        <ProfileCard />
-        <div classNameName="container-fluid ">
+      <div className="container">
+        <div className="container-fluid ">
           <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
               <button

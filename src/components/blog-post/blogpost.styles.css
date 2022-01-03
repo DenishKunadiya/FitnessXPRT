@@ -32,6 +32,11 @@
     justify-content: space-between;
 }
 
+.blogname {
+    /* position: absolute;
+    left: 30vw; */
+}
+
 .card,
 a {
     color: rgb(22, 189, 189);
@@ -48,35 +53,35 @@ a:hover {
     border-radius: 50%;
 }
 
-.fa-bookmark-o,
-.fa-credit-card,
-.bi-trash {
+.bookmark,
+.credit-card,
+.trash {
     font-size: 20px;
     cursor: pointer;
     color: black;
 }
 
-.fa-bookmark-o:hover {
+.bookmark:hover {
     /* background-color: black; */
     color: red;
 }
 
-.bi-trash:hover {
+.trash:hover {
     /* background-color: black; */
     color: red;
 }
 
-.fa-credit-card:hover {
+.credit-card:hover {
     /* background-color: black; */
     color: green;
 }
 
-.fa-credit-card {
+.credit-card {
     position: absolute;
     right: 15px;
 }
 
-.bi-trash {
+.trash {
     position: absolute;
     right: 45px;
     top: -6px;

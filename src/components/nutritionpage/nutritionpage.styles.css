@@ -36,10 +36,11 @@
     will-change: transform;
     padding: 35px;
     padding-top: 180px;
+    position: relative;
 }
 
 .card-title {
-    font-size: 26px;
+    font-size: 19px;
     color: black;
     font-weight: 500;
     margin-bottom: 5px;
@@ -235,4 +236,30 @@
     .card-list-nutrition {
         margin-bottom: -120px;
     }
+}
+
+.trash-nutrition,
+.credit-card-nutrition {
+    font-size: 25px;
+    position: absolute;
+    top: 0px;
+}
+
+.trash-nutrition {
+    right: 0px;
+    color: black;
+}
+
+.credit-card-nutrition {
+    top: 6px;
+    right: 30px;
+    color: black;
+}
+
+.save-nutrition {
+    font-size: 25px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: black;
 }
