@@ -1,4 +1,9 @@
-import { GET_ALL_NUTRITION, GET_NEW_NUTRITION_POST } from "../constants";
+import {
+    GET_ALL_NUTRITION,
+    GET_NEW_NUTRITION_POST,
+    GET_SINGLE_NUTRITION,
+    UPDATED_NUTRITION,
+} from "../constants";
 import { AuthApiCall } from "../../helper/api";
 
 export const fetchNutritionss = (payload) => (dispatch) => {
@@ -17,4 +22,8 @@ export const fetchNutritionss = (payload) => (dispatch) => {
 export const updateNutritionDispatch = (userData) => ({
     type: GET_NEW_NUTRITION_POST,
     payload: userData,
+});
+export const newupdateNutritionDispatch = (updatedNutrition) => ({
+    type: UPDATED_NUTRITION,
+    payload: updatedNutrition,
 });

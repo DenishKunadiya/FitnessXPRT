@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import MyPostBlog from "../mypost/MyPostBlog";
 // import MyPostNutrition from "../mypost/MyPostNutrition";
-import "./profile-nav.styles.css";
+// import "./profile-nav.styles.css";
 import { fetchBlogs } from "../../services/actions/blogAction";
-import MyPostNutrition from "../mypost/MyPostNutrition";
+import MyPostNutritions from "../mypost/MyPostNutrition";
 import { fetchNutritionss } from "../../services/actions/getAllNutritionAction";
-import UpdateNutrition from "../updatenutrition/UpdateNutrition";
-const ProfileNav = ({ fetchBlog, myNutrition }) => {
-  const [nutritionShow, setNutritionShow] = useState(true);
-  const [blogShow, setBlogShow] = useState(false);
-
+import Navbar from "../header/Navbar.component";
+import ProfileCard from "../profile-card/profile-card.component";
+import Profile from "../profile/Profile";
+const ProfileNutrtionNav = ({ fetchBlog, myNutrition }) => {
   return (
     <>
-      <div>
+      <Navbar />
+      <ProfileCard />
+      <Profile />
+      {/* <div>
         <div className="container-fluid ">
           <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
@@ -26,7 +28,7 @@ const ProfileNav = ({ fetchBlog, myNutrition }) => {
                 role="tab"
                 aria-controls="pills-home"
                 aria-selected="true"
-                onClick={() => setNutritionShow(!nutritionShow)}
+                // onClick={myNutritions}
               >
                 Nutrition
               </button>
@@ -41,7 +43,7 @@ const ProfileNav = ({ fetchBlog, myNutrition }) => {
                 role="tab"
                 aria-controls="pills-profile"
                 aria-selected="false"
-                onClick={() => setBlogShow(!blogShow)}
+                // onClick={myBlogs}
               >
                 Blog
               </button>
@@ -62,10 +64,10 @@ const ProfileNav = ({ fetchBlog, myNutrition }) => {
             </li>
           </ul>
         </div>
-      </div>
-
-      {nutritionShow ? <MyPostNutrition /> : null}
-      {blogShow ? <MyPostBlog /> : null}
+      </div> */}
+      {/* isGoals ? <MyPostNutrition /> : <ProfileNav />} */}
+      {/* <MyPostNutrition /> */}
+      {/* <MyPostBlog /> */}
     </>
   );
 };
@@ -75,4 +77,4 @@ const mapDispatchToProp = (dispatch) => {
     myNutrition: () => dispatch(fetchNutritionss()),
   };
 };
-export default connect(null, mapDispatchToProp)(ProfileNav);
+export default connect(null, mapDispatchToProp)(ProfileNutrtionNav);

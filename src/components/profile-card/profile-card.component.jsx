@@ -25,7 +25,7 @@ const ProfileCard = ({ userData }) => {
                 </b>{" "}
               </h1>
 
-              <Link className="btn profile-edit-btn" to="/EditProfile">
+              <Link className="btn profile-edit-btn" to="/editProfile">
                 Edit Profile
               </Link>
             </div>

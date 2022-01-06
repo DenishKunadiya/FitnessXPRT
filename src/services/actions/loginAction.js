@@ -5,7 +5,7 @@ import axios from "axios";
 export const userLoginRequest = (payload) => (dispatch) => {
     return new Promise((resolve, reject) => {
         axios
-            .post("http://192.168.0.115:5000/api/user/login", payload)
+            .post("http://192.168.0.100:5000/api/user/login", payload)
             .then(
                 (loginData) =>
                 dispatch({

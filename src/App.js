@@ -21,7 +21,6 @@ import UpdateNutrition from "./components/updatenutrition/UpdateNutrition";
 import MyPostBlog from "./components/mypost/MyPostBlog";
 
 function App() {
-  let token = "asas";
   return (
     <BrowserRouter>
       <div className="containerbody">
@@ -32,15 +31,11 @@ function App() {
           <ProtectedRoutes exact path="/blog" component={BlogPage} />{" "}
           <ProtectedRoutes exact path="/Exercise" component={ExercisePage} />{" "}
           <ProtectedRoutes exact path="/profile" component={ProfilePage} />{" "}
-          <ProtectedRoutes exact path="/EditProfile" component={EditProfile} />{" "}
+          <ProtectedRoutes exact path="/editProfile" component={EditProfile} />{" "}
+          <Route exact path="/blog/EditBlog/:id" component={EditBlog} />{" "}
           <ProtectedRoutes
             exact
-            path="/blog/EditBlog/:id"
-            component={EditBlog}
-          />{" "}
-          <ProtectedRoutes
-            exact
-            path="/updatenutrition"
+            path="/updatenutrition/:id"
             component={UpdateNutrition}
           />{" "}
           <ProtectedRoutes exact path="/myblog" component={MyPostBlog} />{" "}

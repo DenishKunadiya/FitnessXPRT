@@ -1,102 +1,72 @@
-// import React, { Fragment, useState } from "react";
-// import { Link, useHistory } from "react-router-dom";
-
-// import { store } from "../../services/store";
-// import { createBlog } from "../../helper/api/blog/index";
-// const UpdateNutrition = ({ history }) => {
-//   const [selectFile, setSelectFile] = useState("");
-//   const [ingredient, setIngredient] = useState("");
-//   const [procedure, setProcedure] = useState("");
-//   const [nutritionName, setNutritionName] = useState("");
-//   //   const [description, setDescription] = useState("");
-//   //   const [title, setTitle] = useState("");
-
-//   async function submitForm(e) {
-//     e.preventDefault();
-//     const formData = new FormData();
-//     formData.append("procedure", procedure);
-//     formData.append("ingredient", ingredient);
-//     formData.append("image", selectFile);
-//     formData.append("nutritionName", nutritionName);
-//     // console.log("selected file in function", description);
-//     // createBlog(formData);
-//     console.log("formdata", formData);
-//   }
-//   return (
-//     <>
-//       <div>dgdfg</div>
-//     </>
-//   );
-// };
-
-// export default UpdateNutrition;
-
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { store } from "../../services/store";
 // import "./nutrition.styles.css";
+import "./updatenutrition.css";
 import {
   createNutrition,
   updateUserNutrition,
 } from "../../helper/api/nutrition";
-class UpdateNutrition extends Component {
-  state = {
-    nutritionname: "",
-    ingredient: [],
-    procedure: [],
-    image: "",
+import { Link, useParams } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+const UpdateNutrition = ({ history, singleNut }) => {
+  console.log("update nutrition match", singleNut);
+  const [ingredient, setIngredient] = useState([]);
+  const [procedure, setProcedure] = useState([]);
+  const [nutrition, setNutrition] = useState("");
+  const [image, setimage] = useState("");
+  const id = singleNut._id;
+  console.log(id);
+  let handleChange = (i, e) => {
+    let newFormValues = [...ingredient];
+    newFormValues[i][e.target.name] = e.target.value;
+    setIngredient(newFormValues);
   };
-  ingredient() {
-    this.setState({ ingredient: [...this.state.ingredient, ""] });
-  }
-  handleChange(e, index) {
-    this.state.ingredient[index] = e.target.value;
-    this.setState({ ingredient: this.state.ingredient });
-  }
-  procedure() {
-    this.setState({ procedure: [...this.state.procedure, ""] });
-  }
-  handleChanges(e, index) {
-    this.state.procedure[index] = e.target.value;
-    this.setState({ procedure: this.state.procedure });
-  }
-  handleNutritionname(e) {
-    this.state.nutritionname = e.target.value;
-    this.setState({ nutritionname: this.state.nutritionname });
-  }
+  let handleChangeProcedure = (i, e) => {
+    let FormValues = [...procedure];
+    FormValues[i][e.target.name] = e.target.value;
+    setProcedure(FormValues);
+  };
+  let addFormFields = () => {
+    setIngredient([...ingredient, {}]);
+  };
+  let addProcedure = () => {
+    setProcedure([...procedure, {}]);
+  };
 
-  image(e) {
-    this.state.image = e.target.files[0];
-    this.setState({ image: e.target.files[0] });
-    console.log("nutrtion img", this.image);
-  }
-  deleteIngredient(idx) {
-    // this.state.procedure.splice(i, 1);
-    this.state.ingredient.splice(idx, 1);
-    this.setState({ ...this.ingredient });
-  }
-  deleteProcedure(index) {
-    this.state.procedure.splice(index, 1);
-    // this.state.ingredient.splice(i, 1);
-    this.setState({ ...this.procedure });
-  }
-  async handleSubmit(e) {
-    console.log(this.state);
+  let removeFormFields = (i) => {
+    let newFormValues = [...ingredient];
+    newFormValues.splice(i, 1);
+    setIngredient(newFormValues);
+  };
+  let removeProcedure = (i) => {
+    let FormValues = [...procedure];
+    FormValues.splice(i, 1);
+    setProcedure(FormValues);
+  };
+
+  let handleSubmit = (event) => {
+    event.preventDefault();
+    alert(JSON.stringify(ingredient));
+  };
+
+  async function submitForm(e) {
+    // console.log(this.state);
     e.preventDefault();
-    const { nutritionname, ingredient, procedure, image } = this.state;
+    // const { nutritionname, ingredient, procedure, image } = this.state;
     var formData = new FormData();
-    formData.append("nutritionname", nutritionname);
+    formData.append("nutritionname", nutrition);
     formData.append("procedure", procedure);
     formData.append("ingredient", ingredient);
     formData.append("image", image);
-    console.log("formData : ", formData.get("image"));
+    formData.append("id", id);
+    // console.log("formData : ", formData.get("image"));
     updateUserNutrition(formData);
     // updateNutrition(formData);
   }
-
-  render() {
-    const steps = 0;
-    return (
-      <div>
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
         <div className="container mt-5">
           <div className="input-group mb-3">
             <div className="input-group-prepend">
@@ -104,15 +74,25 @@ class UpdateNutrition extends Component {
                 Nutrition Name
               </span>
             </div>
+
             <input
               type="text"
               className="form-control input-text"
               placeholder="nutrition name"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value={this.state.nutritionname}
-              onChange={(e) => this.handleNutritionname(e)}
+              defaultValue={singleNut.nutritionname}
+              onChange={(e) => setNutrition(e.target.value)}
             />
+            {/* <input
+              type="text"
+              className="form-control input-text d-none"
+              placeholder="nutrition name"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              // value={this.state.nutritionname}
+              value={singleNut._id}
+            /> */}
           </div>
         </div>
         <div className="container mb-5">
@@ -123,101 +103,101 @@ class UpdateNutrition extends Component {
             className="mt-2 "
             name="image"
             id="nutrtionfile"
-            onChange={(e) => this.setState({ image: e.target.files[0] })}
+            // value={singleNut.nutritionImage}
+            onChange={(e) => setimage(e.target.files[0])}
           />
         </div>
-        {this.state.ingredient.map((ingredient, index) => {
-          return (
-            <div className="container input-group mb-5 " key={index}>
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="basic-addon1">
-                  Enter Your Ingredient Name -{index + 1}
-                </span>
-              </div>
-              <input
-                type="text"
-                id="ingredientName"
-                className="form-control input-text"
-                placeholder="Enter Ingredient Name"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-                value={ingredient}
-                onChange={(e) => this.handleChange(e, index)}
-              />
-              <button
-                className="delete-btn"
-                onClick={() => this.deleteIngredient(index)}
-              >
-                <i className="bi bi-trash-fill"></i>
-              </button>
-            </div>
-          );
-        })}
-        <div className="container d-flex justify-content-center mt-5">
-          <button
-            className="button-17"
-            role="button"
-            onClick={(e) => this.ingredient(e)}
-          >
-            Add Ingredient
-          </button>
-        </div>
-        <br />
         <div className="container">
-          <h1>Procedures :</h1>
-        </div>
-        {this.state.procedure.map((procedure, index) => {
-          return (
-            <div className="container input-group mb-5 " key={index}>
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="basic-addon1">
-                  Enter steps -{index + 1}
-                </span>
-              </div>
+          {ingredient.map((element, index) => (
+            <div className="form-inline" key={index}>
+              <label>Ingredient-{index + 1}</label>
               <input
                 type="text"
-                id="ingredientName"
-                className="form-control input-text"
-                placeholder="Enter Nutrtion Procedure"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-                value={procedure}
-                onChange={(e) => this.handleChanges(e, index)}
+                name="name"
+                placeholder="Enter Ingredient"
+                value={element.name || ""}
+                onChange={(e) => handleChange(index, e)}
               />
-
-              <button
-                className="delete-btn"
-                onClick={() => this.deleteProcedure(index)}
-              >
-                <i className="bi bi-trash-fill"></i>
-              </button>
+              {index ? (
+                <button
+                  type="button"
+                  className="button-17 mt-5 bg-danger"
+                  onClick={() => removeFormFields(index)}
+                >
+                  Remove Ingredient
+                </button>
+              ) : null}
             </div>
-          );
-        })}
-
-        <div className="container d-flex justify-content-center ">
-          <button
-            className="button-17 mt-5"
-            role="button"
-            onClick={(e) => this.procedure(e)}
-          >
-            Add Procedure
-          </button>
+          ))}
+          <div className="container d-flex justify-content-center">
+            <button
+              className="button-17 mt-5"
+              type="button"
+              onClick={() => addFormFields()}
+            >
+              Add Ingredient
+            </button>
+          </div>
         </div>
 
-        <br />
-        <div className="container d-flex justify-content-center">
+        <div className="container">
+          {procedure.map((element, index) => (
+            <div className="form-inline" key={index}>
+              <label>procedure-{index + 1}</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter Procedure"
+                value={element.name || ""}
+                onChange={(e) => handleChangeProcedure(index, e)}
+              />
+              {index ? (
+                <button
+                  type="button"
+                  className="button-17 mt-5"
+                  onClick={() => removeProcedure(index)}
+                >
+                  Remove Procedure
+                </button>
+              ) : null}
+            </div>
+          ))}
+          <div className="container d-flex justify-content-center">
+            <button
+              className="button-17 mt-5"
+              type="button"
+              onClick={() => addProcedure()}
+            >
+              Add Procedure
+            </button>
+          </div>
+        </div>
+        <div className="container d-flex justify-content-center mt-5 ">
           <button
-            className="button-17"
+            className="button-17 bg-success"
             role="button"
-            onClick={(e) => this.handleSubmit(e)}
+            onClick={submitForm}
           >
             Submit
           </button>
         </div>
-      </div>
-    );
-  }
-}
+        {/* <input type="submit" value=""  /> */}
+      </form>
+      <Link to="/nutrition">
+        <div className="container d-flex justify-content-center ">
+          <button className="button-17 mt-5" role="button">
+            Back to nutrition
+          </button>
+        </div>
+      </Link>
+    </div>
+  );
+};
 
-export default UpdateNutrition;
+const mapStateToProps = (state) => {
+  console.log("state in updatenutrition", state);
+  return {
+    singleNut: state.singleNutrition.getSingleNutrition.data.message,
+  };
+};
+export default connect(mapStateToProps)(UpdateNutrition);

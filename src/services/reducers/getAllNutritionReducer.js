@@ -3,6 +3,7 @@ import {
     GET_ALL_NUTRITION,
     NEW_CREATED_BLOG,
     GET_NEW_NUTRITION_POST,
+    UPDATED_NUTRITION,
 } from "../constants";
 
 const initialState = {
@@ -16,6 +17,14 @@ export const allNutrition = (state = initialState, action) => {
                 getnutrition: action.payload,
             };
         case GET_NEW_NUTRITION_POST:
+            return {
+                ...state,
+                getnutrition: {
+                    ...state,
+                    getnutrition: action.payload,
+                },
+            };
+        case UPDATED_NUTRITION:
             return {
                 ...state,
                 getnutrition: {

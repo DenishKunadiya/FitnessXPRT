@@ -22,7 +22,7 @@ const SignIn = ({ login, history, loginUser }) => {
 
     login({ ...data })
       .then(() => {
-        history.push("/profile");
+        history.push("/nutrition");
       })
       .catch((err) => {
         console.log("error in login", err);

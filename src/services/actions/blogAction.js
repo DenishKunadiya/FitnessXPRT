@@ -1,4 +1,9 @@
-import { GET_ALL_BLOG, GET_NEW_CREATED_BLOG } from "../constants";
+import {
+    GET_ALL_BLOG,
+    GET_NEW_CREATED_BLOG,
+    GET_NEW_UPDATED_BLOG,
+    GET_SINGLE_BLOG,
+} from "../constants";
 import { AuthApiCall } from "../../helper/api";
 
 export const fetchBlogs = (payload) => (dispatch) => {
@@ -18,3 +23,11 @@ export const updateBlogDispatch = (userBlog) => ({
     type: GET_NEW_CREATED_BLOG,
     payload: userBlog,
 });
+export const newUpdateBlogDispatch = (updatedBlog) => ({
+    type: GET_NEW_UPDATED_BLOG,
+    payload: updatedBlog,
+});
+// export const oldUpdateBlogDispatch = (blogs) => ({
+//     type: GET_SINGLE_BLOG,
+//     payload: blogs,
+// });

@@ -1,17 +1,25 @@
 import React, { Component } from "react";
 import { store } from "../../services/store";
-import "./nutrition.styles.css";
-import NutritionPage from "../nutritionpage/nutritionpage.component";
-import { createNutrition } from "../../helper/api/nutrition";
-import { fetchNutrition } from "../../services/actions/getAllNutritionAction";
+// import "./nutrition.styles.css";
+import {
+  createNutrition,
+  updateUserNutrition,
+} from "../../helper/api/nutrition";
+import { useParams } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-class Nutrition extends Component {
+class UpdateNutrition extends Component {
+  constructor({ history, props, match }) {
+    super({ props, match });
+    const id = history.location.pathname;
+    const sup = id.slice(17);
+    console.log("id", sup);
+  }
   state = {
     nutritionname: "",
     ingredient: [],
     procedure: [],
     image: "",
-    token: store.getState().login.login.access_token,
   };
   ingredient() {
     this.setState({ ingredient: [...this.state.ingredient, ""] });
@@ -47,11 +55,6 @@ class Nutrition extends Component {
     // this.state.ingredient.splice(i, 1);
     this.setState({ ...this.procedure });
   }
-
-  clearState() {
-    this.setState({ ...this.state });
-  }
-
   async handleSubmit(e) {
     console.log(this.state);
     e.preventDefault();
@@ -61,19 +64,13 @@ class Nutrition extends Component {
     formData.append("procedure", procedure);
     formData.append("ingredient", ingredient);
     formData.append("image", image);
+    // formData.append("id", sup);
     console.log("formData : ", formData.get("image"));
-
-    createNutrition(formData);
-    this.setState({
-      nutritionname: "",
-      ingredient: [],
-      procedure: [],
-      image: "",
-    });
+    updateUserNutrition(formData);
+    // updateNutrition(formData);
   }
 
   render() {
-    const steps = 0;
     return (
       <div>
         <div className="container mt-5">
@@ -83,6 +80,7 @@ class Nutrition extends Component {
                 Nutrition Name
               </span>
             </div>
+
             <input
               type="text"
               className="form-control input-text"
@@ -194,21 +192,46 @@ class Nutrition extends Component {
             Submit
           </button>
         </div>
-        <NutritionPage />
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
-  // console.log("state in nut post", state);
+  console.log("state in update", state);
   return {
-    nutritionPost: state,
+    nutritions: state.allNutrition.getnutrition?.data?.message,
   };
 };
-// const mapDispatchToProp = (dispatch) => {
-//   return {
-//     fetchBlog: () => dispatch(fetchBlogs()),
-//     fetchNut: () => dispatch(fetchNutrition()),
-//   };
-// };
-export default connect(mapStateToProps)(Nutrition);
+
+export default connect(mapStateToProps)(withRouter(UpdateNutrition));
+<div className="container">
+          {procedure.map((element, index) => (
+            <div className="form-inline" key={index}>
+              <label>procedure-{index + 1}</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter Ingredient"
+                value={element.name || ""}
+                onChange={(e) => handleChangeProcedure(index, e)}
+              />
+              {index ? (
+                <button
+                  type="button"
+                  className="button remove"
+                  onClick={() => removeProcedure(index)}
+                >
+                  Remove
+                </button>
+              ) : null}
+            </div>
+          ))}
+          <div className="button-section">
+            <button
+              className="button add"
+              type="button"
+              onClick={() => addProcedure()}
+            >
+              Add
+            </button>
+          </div>

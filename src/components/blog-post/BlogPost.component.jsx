@@ -1,50 +1,66 @@
 import React, { useState, useEffect } from "react";
 import blogpost from "../../assets/blogpost.jpg";
 import "./blogpost.styles.css";
-import { Link, useParams } from "react-router-dom";
+import bg2 from "../../assets/bg2.jpg";
+import { Link, useParams, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Spinner from "../spinner/spinner";
 import { fetchBlogs } from "../../services/actions/blogAction";
+import { deleteUserBlog, getSingleBlog } from "../../helper/api/blog";
+import store from "../../services/store";
 // import { fetchBlogs } from "../../services/actions/blogactions/blogAction";
-const BlogPost = ({ blogs = [], user, fetchBlog, blogid }) => {
-  // console.log("all blog", blogs);
+const BlogPost = ({ blogs = [], user, fetchBlog, blogid, props, match }) => {
+  const paramss = useParams();
+  console.log("id in blogpost comp", match);
   const params = useParams();
   const [blog, setBlog] = useState(blogs);
-  // const [blog, setBlog] = useState(blogs);
-  console.log(" blog UseEffect", blogid);
+  const [id, setId] = useState("");
+
   useEffect(() => {
     if (!blogs.length) {
       fetchBlog();
     }
     setBlog(blogs);
   }, [blogs]);
+  const deleteBlog = (id) => {
+    deleteUserBlog(id);
+  };
+
+  const getblog = (id) => {
+    // alert(id);
+    getSingleBlog(id);
+  };
 
   return (
     <>
       <div>
         {blog &&
-          blog.map((postblog, index) => {
+          blog.map((postblog, id) => {
             return (
-              <div className="post-container">
+              <div className="post-container" key={id}>
                 <div className="card mt-5">
                   <div className="container d-flex mt-4 position-relative">
-                    <img
-                      src={postblog.blogimage}
-                      alt=""
-                      className="profile-img"
-                    />
+                    <img src={user.userImage} alt="" className="profile-img" />
                     <a className="card-link ms-2">{user.name}</a>
-                    {/* <a className="blogname ms-2">BLogName</a> */}
-                    <i className="bi bi-trash trash"></i>
-                    <Link to={"/blog/EditBlog/:" + postblog._id}>
-                      <i className="fa fa-credit-card credit-card"></i>
+
+                    <i
+                      className="bi bi-trash trash"
+                      onClick={() => deleteBlog(postblog._id)}
+                    ></i>
+                    <Link to={"/blog/EditBlog/" + postblog._id}>
+                      <i
+                        className="fa fa-credit-card credit-card"
+                        onClick={() => getblog(postblog._id)}
+                      ></i>
                     </Link>
                   </div>
                   <div className="container d-flex justify-content-center">
-                    <a className="blogname ms-2">{postblog.blogname}</a>
+                    <a className="blogname ms-2">{postblog.blogName}</a>
+                    {/* <a className="blogname ms-2">{postblog._id}</a> */}
                   </div>
                   <img
-                    src={postblog.blogimage}
+                    src={bg2}
+                    // src={`http://${postblog.blogImage}`}
                     className="card-img-top mt-3 border"
                     alt="..."
                   />
@@ -86,4 +102,7 @@ const mapDispatchToProp = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProp)(BlogPost);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProp
+)(withRouter(BlogPost));

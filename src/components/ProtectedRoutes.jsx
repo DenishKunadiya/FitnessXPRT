@@ -27,7 +27,7 @@ const ProtectedRoutes = ({
           if (userData) {
             return <Component {...props} />;
           } else {
-            <Redirect to={{ pathname: "/signup", state: location }} />;
+            <Redirect to={{ pathname: "/signup", state: props.location }} />;
           }
         }}
       />
@@ -40,7 +40,7 @@ const ProtectedRoutes = ({
   );
 };
 const mapStateToProps = (state) => {
-  console.log("state in protected route", state);
+  // console.log("state in protected route", state);
   return {
     userData: state.login?.login?.success,
   };

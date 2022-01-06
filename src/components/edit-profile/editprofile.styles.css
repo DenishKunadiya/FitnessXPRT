@@ -64,7 +64,8 @@
 .sbmt-btn-profile {
     width: 50% !important;
     position: absolute;
-    bottom: 100px;
+    /* bottom: 100px; */
+    /* height: 50px; */
     display: flex;
     justify-content: center;
 }

@@ -62,7 +62,7 @@ const Navbar = ({ fetchBlog, fetchNute, userData, fetchexrcs, logout }) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log("state", state);
+  // console.log("state", state);
   return {
     userData: state.login.login,
   };

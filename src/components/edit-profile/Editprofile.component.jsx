@@ -7,13 +7,14 @@ import { updateUserProfile } from "../../helper/api/user";
 import { store } from "../../services/store";
 
 import "./editprofile.styles.css";
-const EditProfile = ({ history }) => {
+const EditProfile = ({ history, editData }) => {
   const [updateDetail, setupdateDetail] = useState({
     name: "",
     email: "",
     password: null,
+    image: "",
   });
-
+  console.log("edit data", editData);
   const submitUpdateUser = (e) => {
     e.preventDefault();
 
@@ -33,7 +34,7 @@ const EditProfile = ({ history }) => {
       <div className="main-card neo-light">
         <form method="POST" onSubmit={submitUpdateUser}>
           <div className="containerg">
-            <div className="container mt-5">
+            <div className="container mt-5 mb-5">
               <label className="mt-5">Username :</label> &nbsp;
               <input
                 type="name"
@@ -41,7 +42,8 @@ const EditProfile = ({ history }) => {
                 placeholder="Set New Username"
                 name="name"
                 id="name"
-                value={updateDetail.name}
+                defaultValue={editData.name}
+                // value={updateDetail.name}
                 onChange={(e) => {
                   handle(e);
                 }}
@@ -53,7 +55,8 @@ const EditProfile = ({ history }) => {
                 placeholder="Set New email"
                 name="email"
                 id="email"
-                value={updateDetail.email}
+                defaultValue={editData.email}
+                // value={updateDetail.email}
                 onChange={(e) => {
                   handle(e);
                 }}
@@ -70,9 +73,18 @@ const EditProfile = ({ history }) => {
                   handle(e);
                 }}
               />
+              <label className="">Update image :</label> &nbsp;
+              <input
+                type="file"
+                className="file"
+                name="blogimg"
+                id=""
+                // value={blogDetails.blogImage}
+                // onChange={(e) => setSelectFile(e.target.files[0])}
+              />
             </div>
 
-            <div className="container d-flex justify-content-center">
+            <div className="container d-flex justify-content-center mt-0">
               <input
                 type="submit"
                 value="submit"
@@ -92,6 +104,7 @@ const mapStateToProps = (state) => {
   console.log("state", state);
   return {
     userData: state.login.login.access_token,
+    editData: state.login.login.data,
   };
 };
 export default connect(mapStateToProps)(EditProfile);

@@ -4,17 +4,17 @@ import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { store } from "../../services/store";
 import { createBlog } from "../../helper/api/blog/index";
-const Blogpop = () => {
+const Blogpop = ({ history, props }) => {
   const [selectFile, setSelectFile] = useState("");
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
-  const history = useHistory();
+  // const history = useHistory();
   const token = store.getState().login.login.access_token;
 
   async function submitForm(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("blogname", title);
+    formData.append("blogName", title);
     formData.append("description", description);
     formData.append("image", selectFile);
     console.log("selected file in function", description);

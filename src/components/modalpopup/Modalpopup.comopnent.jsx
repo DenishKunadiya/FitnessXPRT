@@ -33,7 +33,7 @@ const ModalPopup = (props, { userData }) => {
     // console.log("Form data is here", formData);
     console.log("selected file in function", formData);
     let result = fetch(
-      "http://192.168.0.115:5000/api/blog/create-blog",
+      "http://192.168.0.100:5000/api/blog/create-blog",
 
       {
         method: "POST",

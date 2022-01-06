@@ -86,44 +86,13 @@
     flex-wrap: wrap;
 }
 
-
-/* .card-form__group .card-input__input {
-    flex: 1;
-    margin-right: 15px;
+.trash-nutrition:hover {
+    color: red;
 }
 
-.card-form__group .card-input__input:last-child {
-    margin-right: 0;
-} */
-
-
-/* 
-.button-nutrition,
-.button-nutrition:focus {
-    width: 100%;
-    height: 55px;
-    background: var(--primarycolor);
-    border: none;
-    border-radius: 5px;
-    font-size: 22px;
-    font-weight: 500;
-    box-shadow: var(--shadow);
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s;
-} */
-
-
-/* .button-nutrition:hover {
-    box-shadow: 0px 7px 30px rgba(223, 45, 70, 0.75);
-    transform: translateY(-5px);
-    border: 1px solid var(--blue);
+.credit-card-nutrition:hover {
+    color: green;
 }
-
-.button-nutrition:active {
-    transform: scale(0.9);
-    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
-} */
 
 @media screen and (max-width: 480px) {
     .card-.form__button-nutrition {
